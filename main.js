@@ -5,16 +5,17 @@ const time = document.getElementById('time'),
     usersFocus = document.getElementById('focus');
 
 let greetingMessage = '',
-    today = new Date();
+    today = new Date(),
+    //today = new Date(2003, 06, 10, 12, 33, 30),
     hour = 0,
     min = 0,
     sec = 0;
 
 // Show time
 function showTime() {
-    let today = new Date();
-    hour = today.getHours(),
-    min = addZero(today.getMinutes()),
+    today = new Date();
+    hour = today.getHours();
+    min = addZero(today.getMinutes());
     sec = addZero(today.getSeconds());
     // Output time
     time.innerHTML = `${hour}<span>:</span>${min}<span>:</span>${sec}`;
@@ -27,7 +28,6 @@ function addZero(n) {
 }
 
 function setBgAndGreeting() {
-    let today = new Date(),
     hour = today.getHours();
 
     if (hour < 12) {
