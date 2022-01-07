@@ -46,7 +46,7 @@ function setBgAndGreeting() {
 
 function getName() {
     if (localStorage.getItem('name') === null) {
-     usersName.textContent = '[Put ya name]';
+     usersName.textContent = 'You';
     } else {
      usersName.textContent = localStorage.getItem('name');
     }
@@ -54,7 +54,7 @@ function getName() {
 
 function getFocus() {
     if (localStorage.getItem('focus') === null) {
-     usersFocus.textContent = '[Put ya focus]';
+     usersFocus.textContent = 'Exist I guess';
     } else {
      usersFocus.textContent = localStorage.getItem('focus');
     }
