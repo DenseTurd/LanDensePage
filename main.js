@@ -96,9 +96,15 @@ getName();
 getFocus();
 
 
-window.addEventListener('click', speak);
-window.addEventListener('keypress', speak);
-setTimeout(speak, 100);
+window.addEventListener('click', () => {
+    speak();
+    console.log('Window click');
+});
+window.addEventListener('keypress', () => {
+    speak();
+    console.log('Window keypress');
+});
+    
 
 let spoken = false;
 window.addEventListener('DOMContentLoaded', () => {
