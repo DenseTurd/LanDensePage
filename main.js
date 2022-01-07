@@ -96,20 +96,33 @@ getName();
 getFocus();
 
 
-setTimeout(textToSpeech, 100);
+window.addEventListener('click', speak);
+window.addEventListener('keypress', speak);
+setTimeout(speak, 100);
 
-function textToSpeech() {
+let spoken = false;
+window.addEventListener('DOMContentLoaded', () => {
+    console.log('Loaded');
+    spoken = false;
+})
+
+function speak() {
+    if (spoken) return;
     if ('speechSynthesis' in window) {
         console.log('Will speak');
     } else {
         console.log(`Won't speak`);
+        return;
     }
+
+    window.speechSynthesis.cancel()
 
     let msg = new SpeechSynthesisUtterance();
     msg.text = `${greetingMessage} ${usersName.textContent}.
     It is ${hour} ${min} on ${getDayName(today.getDay())} the ${addSuffixToDate(today.getDate())} of ${getMonthName(today.getMonth())}.
     Today you will ${usersFocus.textContent}`;
     window.speechSynthesis.speak(msg);
+    spoken = true;
 }
 
 function addSuffixToDate(i) {
