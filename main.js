@@ -140,6 +140,24 @@ function addSuffixToDate(i) {
     }
     if (i === 3) {
         return i.toString() + 'rd';
+    }    
+    if (i === 21) {
+        return i.toString() + 'st';
+    }
+    if (i === 22) {
+        return i.toString() + 'nd';
+    }
+    if (i === 23) {
+        return i.toString() + 'rd';
+    }
+    if (i === 31) {
+        return i.toString() + 'st';
+    }
+    if (i === 32) { // Just in case months last this long ever
+        return i.toString() + 'nd';
+    }
+    if (i === 33) {
+        return i.toString() + 'rd';
     }
     return i.toString() + 'th';
 }
